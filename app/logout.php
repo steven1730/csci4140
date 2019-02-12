@@ -4,3 +4,4 @@ if (isset($_COOKIE['username'])){
 	setcookie('password', '', time()-3600);
 }
 header('location: login.html');
+?>
