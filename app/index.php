@@ -1,1 +1,1 @@
-<?php header("Location: login.html"); ?>
+<?php inculde_once("location: login.html"); ?>
