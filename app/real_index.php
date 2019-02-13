@@ -7,21 +7,10 @@ if (isset($_COOKIE['username'])){
 	echo '<a href="login.html"> Login </a>';
 	echo ' !';
 }
+$image_in = new Imagick('test.jpg');
+
+$image_in->blurImage(10,10);
+$image_in->borderImage('black', 100, 100);
+
+echo $image_in;
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Photo Album</title>
-	</head>
-	<body>
-		<?php
-			$image_in = new Imagick('test.jpg');
-
-			$image_in->blurImage(10,10);
-			$image_in->borderImage('black', 100, 100);
-
-			echo $image_in;
-		?>
-	</body>
-</html>
