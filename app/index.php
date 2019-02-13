@@ -4,7 +4,7 @@
 		die('Could not connect: '. mysql_error());
 	}
 
-	mysql_select_db("DATABASE_URL", $con)
+	mysql_select_db("my_db", $con)
 	if (mysql_query("INSERT INTO myusers (id,name,passwords) VALUES (3,'Steven','stong1730'",$con)){
 		echo "Yes";
 	}else{
