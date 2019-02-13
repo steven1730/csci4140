@@ -4,5 +4,6 @@ if (isset($_COOKIE['username'])){
 	echo '<a href="logout.php"> Log Out </a>';
 }else{
 	echo 'Hi!';
+	echo '<a href="login.html"> Login </a>';
 }
 ?>
