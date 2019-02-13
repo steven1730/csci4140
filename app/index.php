@@ -5,7 +5,7 @@
 	}
 
 	mysql_select_db("DATABASE_URL", $con)
-	if (mysql_query("INSERT INTO myusers (id,name,passwords) VALUES (3,'Steven','stong1730',$con)){
+	if (mysql_query("INSERT INTO myusers (id,name,passwords) VALUES (3,'Steven','stong1730'",$con)){
 		echo "Yes";
 	}else{
 		echo "Error creating database: " . mysql_error();
