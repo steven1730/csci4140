@@ -4,7 +4,7 @@
 		die('Could not connect: '. mysql_error());
 	}
 
-	mysql_select_db("DATABASE_URL", $con)
+	//mysql_select_db("DATABASE_URL", $con)
 	
 	header("location: login.html"); 
 ?>
