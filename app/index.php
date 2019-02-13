@@ -1,5 +1,5 @@
 <?php 
-	$con = mysql_connect("localhost","mysql.default_user","mysql.default_password");
+	$con = mysql_connect("localhost","peter","abc123");
 
 	header("location: login.html"); 
 ?>
