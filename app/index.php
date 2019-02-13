@@ -3,7 +3,7 @@
 	if (!$con){
 		die('Could not connect: '. mysql_error());
 	}else{
-		echo "Connected";
+		echo 'Connected';
 	}
 
 	//mysql_select_db("DATABASE_URL", $con)
