@@ -4,8 +4,9 @@
 		die('Could not connect: '. mysql_error());
 	}
 
-	if (mysql_query("CREATE DATABASE my_db",$con)){
-		echo "Database created";
+	mysql_select_db("DATABASE_URL", $con)
+	if (mysql_query("INSERT INTO myusers (id,name,passwords) VALUES (3,'Steven','stong1730',$con)){
+		echo "Yes";
 	}else{
 		echo "Error creating database: " . mysql_error();
 	}
