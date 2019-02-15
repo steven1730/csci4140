@@ -21,10 +21,10 @@ if (isset($_POST['button'])){
 	}
 }
 
-if ($flag == 1){
-	setcookie('username', $_POST['username'], time()+3600);
-	header('location: real_index.php');
-}
+//if ($flag == 1){
+//	setcookie('username', $_POST['username'], time()+3600);
+//	header('location: real_index.php');
+//}
 //else if (isset($_POST['loginasguest'])){
 //	header('location: real_index.php');
 //}
