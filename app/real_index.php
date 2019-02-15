@@ -28,7 +28,10 @@ $s3 = new Aws\S3\S3Client([
     'region'   => 'us-east-2',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+	echo "FSGDS";
 ?>
+
+
 <html>
     <head><meta charset="UTF-8"></head>
     <body>
@@ -51,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     </body>
 </html>
 
-<?php echo "HERE" ?>
+<?php echo "HERE"; ?>
 
 <?php 
 } 
