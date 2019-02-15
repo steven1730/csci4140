@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILE
 	</p>
 <?php
 	}
-}}
+}
 ?>
 
 	<h2>Upload a file</h2>
@@ -63,4 +63,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILE
 </body>
 </html>
 
-
+<?php } ?>
