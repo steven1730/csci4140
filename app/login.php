@@ -27,14 +27,15 @@ if (isset($_POST['button'])){
 		$sql2 = "SELECT password FROM MyUsers where name = '$name'";
 		$result2 = $pdo->query($sql2);
 		$result2->setFETCHMode(PDO::FETCH_ASSOC);
-		while ($row = $result2->fetch()){
-			if ($_POST['password'] == $row['password']){
-				setcookie('username', $_POST['username'], time()+3600);
-				header('location: real_index.php');
-			}else{
-				echo "No such user! Please";
-				echo '<a href="login.html"> login </a>';
-				echo "again!";
+		while ($row2 = $result2->fetch()){
+			//if ($_POST['password'] == $row['password']){
+			//	setcookie('username', $_POST['username'], time()+3600);
+			//	header('location: real_index.php');
+			//}else{
+			//	echo "No such user! Please";
+			//	echo '<a href="login.html"> login </a>';
+			//	echo "again!";
+			echo $row['password'];
 			}
 		}
 	}else{
