@@ -37,6 +37,10 @@ if (isset($_POST['button'])){
 				echo "again!";
 			}
 		}
+	}else{
+		echo "No such user! Please";
+		echo '<a href="login.html"> login </a>';
+		echo "again!";
 	}
 
 }
