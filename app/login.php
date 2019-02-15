@@ -12,7 +12,6 @@ if (isset($_POST['button'])){
 	));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$name = $_POST['username'];
 	$sql = 'SELECT name FROM MyUsers';
 	$result = $pdo->query($sql);
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
@@ -24,7 +23,7 @@ if (isset($_POST['button'])){
 	}
 echo $flag;
 	if ($flag == 1){
-		$sql2 = "SELECT password FROM MyUsers where name = '".$name. "'";
+		$sql2 = "SELECT password FROM MyUsers where name = '".$_POST['username']. "'";
 		$result2 = $pdo->query($sql2);
 		$result2->setFETCHMode(PDO::FETCH_ASSOC);
 		while ($row2 = $result2->fetch()){
@@ -35,7 +34,7 @@ echo $flag;
 			//	echo "No such user! Please";
 			//	echo '<a href="login.html"> login </a>';
 			//	echo "again!";
-			echo $row['password'];
+			echo $row2['password'];
 			}
 		}
 	}else{
