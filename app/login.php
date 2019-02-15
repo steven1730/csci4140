@@ -11,12 +11,12 @@ if (isset($_POST['button'])){
 	));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = $pdo->prepare("SELECT name FROM MyUsers");
-	$sql->execute();
+	$sql = 'SELECT name FROM MyUsers';
+	$result = $pdo->query($sql);
+	$result->setFETCHMode(PDO::FETCH_ASSOC);
 
-	while($row = $sql->fetch(PDO::FETCH_ASSOC)){
-		extract($row);
-		echo $name;
+	while ($row = $result->fetch()){
+		echo $row['name']
 	}
 
 
