@@ -29,7 +29,7 @@ else{
 	if (isset($_POST['loginasguest'])){
 		header('location: login.html');
 	}
-	echo "No such user! Please login again!"
+	echo "No such user! Please login again!";
 	header('location: login.html');
 }
 
