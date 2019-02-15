@@ -1,5 +1,5 @@
 <?php
-echo "HERE";
+$flag = 0
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
@@ -19,8 +19,9 @@ if (isset($_POST['button'])){
 	while ($row = $result->fetch()){
 		echo $row['name'];
 	}
+}
 
-
+if ($flag = 1){
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
 }else if (isset($_POST['loginasguest'])){
