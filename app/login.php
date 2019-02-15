@@ -1,5 +1,5 @@
 <?php
-echo "HERE"
+echo "HERE";
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
@@ -17,7 +17,7 @@ if (isset($_POST['button'])){
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
 
 	while ($row = $result->fetch()){
-		echo $row['name']
+		echo $row['name'];
 	}
 
 
