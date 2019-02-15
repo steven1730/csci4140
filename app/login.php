@@ -14,11 +14,12 @@ if (isset($_POST['button'])){
 
 	$sql = 'SELECT name FROM MyUsers';
 	$result = $pdo->query($sql);
-	$result->setFETCHMode(PDO::FETCH_ASSOC);
+	echo "GGGGGGGGG";
+	//$result->setFETCHMode(PDO::FETCH_ASSOC);
 
-	while ($row = $result->fetch()){
-		echo $row['name'];
-	}
+	//while ($row = $result->fetch()){
+	//	echo $row['name'];
+	//}
 }
 
 //if ($flag == 1){
