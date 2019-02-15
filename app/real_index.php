@@ -7,7 +7,7 @@ if (isset($_COOKIE['username'])){
 	echo "hello, db user:";
 	echo $db["user"];
 
-	$pdo = new PDO("pgsql:") .sprintf("
+	$pdo = new PDO("pgsql:" .sprintf("
 		host=%s;port=%s;user=%s;password=%s;dbname=%s",
 		$db["host"], 
 		$db["port"], 
