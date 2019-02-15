@@ -12,32 +12,25 @@ if (isset($_POST['button'])){
 	));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = 'SELECT name FROM MyUsers';
+	$sql = 'SELECT name, password FROM MyUsers';
 	$result = $pdo->query($sql);
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
 	while ($row = $result->fetch()){
 		if ($_POST['username'] == $row['name']){
-			$flag = 1;
-			break;
+			if ($_POST['password'] == $row['password']){
+				$flag = 1;
+				break;
+			}
 		}
 	}
 echo $flag;
 	if ($flag == 1){
-		//$sql2 = "SELECT password FROM MyUsers where name = '".$_POST['username']. "'";
-		//$result2 = $pdo->query($sql2);
-		//$result2->setFETCHMode(PDO::FETCH_ASSOC);
-		//while ($row2 = $result2->fetch()){
-			//if ($_POST['password'] == $row['password']){
-			//	setcookie('username', $_POST['username'], time()+3600);
-			//	header('location: real_index.php');
-			//}else{
-			//	echo "No such user! Please";
-			//	echo '<a href="login.html"> login </a>';
-			//	echo "again!";
-			//echo $row2['password'];
-			//}
-		//}
+		setcookie('username', $_POST['username'], time()+3600);
+		header('location: real_index.php');
 	}else{
+		//if (isset($_POST['loginasguest'])){
+		//	header('location: login.html');
+		//}
 		echo "No such user! Please";
 		echo '<a href="login.html"> login </a>';
 		echo "again!";
