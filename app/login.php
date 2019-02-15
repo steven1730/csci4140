@@ -12,12 +12,12 @@ if (isset($_POST['button'])){
 	));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = 'SELECT name, password FROM MyUsers';
+	$sql = 'SELECT name, passwords FROM MyUsers';
 	$result = $pdo->query($sql);
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
 	while ($row = $result->fetch()){
 		if ($_POST['username'] == $row['name']){
-			if ($_POST['password'] == $row['password']){
+			if ($_POST['password'] == $row['passwords']){
 				$flag = 1;
 				break;
 			}
