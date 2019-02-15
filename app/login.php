@@ -1,4 +1,5 @@
 <?php
+echo "HERE"
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
