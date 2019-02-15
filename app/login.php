@@ -14,10 +14,11 @@ if (isset($_POST['button'])){
 	$sql = $pdo->prepare("SELECT name FROM MyUsers");
 	$sql->execute();
 
-	$result = $sql->setFetchMode(PDO::FETCH_ASSOC);
-	foreach (new TableRows(new RecursiveArrayIterator($sql->fetchAll())) as $k=>$v) {
-		echo $v;
+	while($row = $sql->fetch(PDO::FETCH_ASSOC)){
+		extract($row);
+		echo $name;
 	}
+
 
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
