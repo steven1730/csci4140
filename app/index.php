@@ -1,5 +1,5 @@
 <?php 
-	header("location: login.html"); 
+	echo "asdf";
 ?>
 <!DOCTYPE html>
 <html>
