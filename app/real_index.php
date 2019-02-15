@@ -9,17 +9,15 @@ if (isset($_COOKIE['username'])){
 	echo ' !';
 }
 
-?>
+require('../vendor/autoload.php');
+header('Content-type: image/jpeg');
+$s3 = new Aws\S3\S3Client([
+	'version' => '2006-03-01',
+	'region' => 'us-east-1',
+]);
+echo "QWERTY"
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
-<?php
-	echo "HERE";
-	require('vendor/autoload.php');
-	$s3 = new Aws\S3\S3Client([
-		'version' => '2006-03-01',
-		'region' => 'us-east-1',
-	]);
-	echo "QWERTY"
-	$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 ?>
 
 <html>
@@ -30,10 +28,10 @@ if (isset($_COOKIE['username'])){
 		<h1>S3 upload example</h1>
 
 		<?php
-			if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
 
-				try {
-					$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+			try {
+				$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 		?>
 					<p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>"> successful </a> :)</p>
 		<?php   } catch (Exception $e) { ?>
