@@ -1,4 +1,5 @@
 <?php
+$flag = 0
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
@@ -17,9 +18,11 @@ if (isset($_POST['button'])){
 	echo $_POST['username'];
 	while ($row = $result->fetch()){
 		echo $row['name'];
+		if ($_POST['username'] == $row['name'])
+			$flag = 1
 	}
 }
-
+echo $flag;
 //if ($flag == 1){
 //	setcookie('username', $_POST['username'], time()+3600);
 //	header('location: real_index.php');
