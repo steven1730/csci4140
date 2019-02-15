@@ -1,5 +1,5 @@
 <?php
-$flag = 0
+$flag = 0;
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
@@ -10,24 +10,28 @@ if (isset($_POST['button'])){
 		$db["pass"],
 		ltrim($db["path"], "/")
 	));
-	//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	//$sql = 'SELECT name FROM MyUsers';
-	//$result = $pdo->query($sql);
-	echo "GGGGGGGGG";
-	//$result->setFETCHMode(PDO::FETCH_ASSOC);
-
-	//while ($row = $result->fetch()){
-	//	echo $row['name'];
-	//}
+	$sql = 'SELECT name FROM MyUsers';
+	$result = $pdo->query($sql);
+	$result->setFETCHMode(PDO::FETCH_ASSOC);
+	while ($row = $result->fetch()){
+		if ($_POST['username'] == $row['name'])
+			$flag = 1;
+	}
 }
 
-//if ($flag == 1){
-//	setcookie('username', $_POST['username'], time()+3600);
-//	header('location: real_index.php');
-//}
-//else if (isset($_POST['loginasguest'])){
-//	header('location: real_index.php');
-//}
+if ($flag == 1){
+	setcookie('username', $_POST['username'], time()+3600);
+	header('location: real_index.php');
+}
+else{
+	if (isset($_POST['loginasguest'])){
+		header('location: login.html');
+	}
+	echo "No such user! Please";
+	echo '<a href=login.html"> login </a>';
+	echo "again!";
+}
 
 ?>
