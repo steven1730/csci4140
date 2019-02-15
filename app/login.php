@@ -13,11 +13,7 @@ if (isset($_POST['button'])){
 	$sql = "SELECT name FROM myusers;";
 	$result = $pdo->query($sql);
 
-	if ($result->num_rows > 0){
-		while ($row = $result->fetch_assoc()){
-			echo "name:" .$row["name"]."<br>";
-		}
-	}
+	echo "result: " .$result. ;
 
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
