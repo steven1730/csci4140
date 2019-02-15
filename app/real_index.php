@@ -25,15 +25,14 @@ $pdo = new PDO("pgsql:" . sprintf("host=%s;port=%s;user=%s;password=%s;dbname=%s
 if (isset($_COOKIE['username'])){
 	echo "HERqfefsfw";
 	require('../vendor/autoload.php');
-	$s3 = new Aws\S3\S3Client([
-	'version' => '2006-03-01',
-	'region' => 'us-east-2',
-	]);
-	$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-
+// this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+$s3 = new Aws\S3\S3Client([
+    'version'  => '2006-03-01',
+    'region'   => 'us-east-2',
+]);
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 ?>
-
-	<html>
+<html>
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>S3 upload example</h1>
