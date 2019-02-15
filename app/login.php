@@ -9,11 +9,15 @@ if (isset($_POST['button'])){
 		$db["pass"],
 		ltrim($db["path"], "/")
 	));
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = "SELECT name FROM myusers;";
-	$result = $pdo->query($sql);
+	$sql = $pdo->prepare("SELECT name FROM myusers");
+	$sql->execute();
 
-	echo "result: ";
+	$result = $sql->setFetchMode(PDO::FETCH_ASSOC);
+	foreach (new TableRows(new RecursiveArrayIterator($sql->fetchAll())) as $k=>$v) {
+		echo $v;
+	}
 
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
