@@ -1,5 +1,4 @@
 <?php
-$flag = 0
 if (isset($_POST['button'])){
 	$db = parse_url(getenv("DATABASE_URL"));
 
@@ -10,10 +9,10 @@ if (isset($_POST['button'])){
 		$db["pass"],
 		ltrim($db["path"], "/")
 	));
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = 'SELECT name FROM MyUsers';
-	$result = $pdo->query($sql);
+	//$sql = 'SELECT name FROM MyUsers';
+	//$result = $pdo->query($sql);
 	echo "GGGGGGGGG";
 	//$result->setFETCHMode(PDO::FETCH_ASSOC);
 
