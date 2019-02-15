@@ -20,7 +20,6 @@ if (isset($_POST['button'])){
 			$flag = 1;
 	}
 }
-echo $flag;
 if ($flag == 1){
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
@@ -30,7 +29,7 @@ else{
 	//	header('location: login.html');
 	//}
 	echo "No such user! Please";
-	echo '<a href=login.html"> login </a>';
+	echo '<a href="login.html"> login </a>';
 	echo "again!";
 }
 
