@@ -13,9 +13,8 @@ if (isset($_POST['button'])){
 
 	$sql = 'SELECT name FROM MyUsers';
 	$result = $pdo->query($sql);
-	echo "qwqqdwqdq";
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
-
+	echo $_POST['username'];
 	while ($row = $result->fetch()){
 		echo $row['name'];
 	}
