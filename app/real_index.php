@@ -7,7 +7,14 @@ if (isset($_COOKIE['username'])){
 	echo "hello, db user:";
 	echo $db["user"];
 
-	$pdo = new PDO("pgsql:") .sprintf("host=%s;port=%s;password=%s;dbname=%s", $db["host"], $db["port"], $db["user"], $db["pass"], ltrim(($db["path"], "/")));
+	$pdo = new PDO("pgsql:") .sprintf("
+		host=%s;port=%s;user=%s;password=%s;dbname=%s",
+		$db["host"], 
+		$db["port"], 
+		$db["user"], 
+		$db["pass"], 
+		ltrim(($db["path"], "/")
+	));
 
 	$sql = "INSERT INTO MyUsers (id,name,passwords) VALUES (3,'john','zxc123');";
 
