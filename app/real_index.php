@@ -19,9 +19,6 @@ $pdo = new PDO("pgsql:" . sprintf("host=%s;port=%s;user=%s;password=%s;dbname=%s
 	ltrim($db["path"], "/")
 ));
 
-?>
-
-<?php
 if (isset($_COOKIE['username'])){
 	echo "HERqfefsfw";
 	require('../vendor/autoload.php');
