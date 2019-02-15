@@ -5,7 +5,7 @@
 		'version' => '2006-03-01',
 		'region' => 'us-east-1',
 	]);
-
+	echo "QWERTY"
 	$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 ?>
 
@@ -23,7 +23,7 @@
 					$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 		?>
 					<p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>"> successful </a> :)</p>
-		<?php   } catch (Excetion $e) { ?>
+		<?php   } catch (Exception $e) { ?>
 				  <p>Upload error :(</p>
 		<?php	}}?>
 
