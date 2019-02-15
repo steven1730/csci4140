@@ -26,9 +26,9 @@ if ($flag == 1){
 	header('location: real_index.php');
 }
 else{
-	if (isset($_POST['loginasguest'])){
-		header('location: login.html');
-	}
+	//if (isset($_POST['loginasguest'])){
+	//	header('location: login.html');
+	//}
 	echo "No such user! Please";
 	echo '<a href=login.html"> login </a>';
 	echo "again!";
