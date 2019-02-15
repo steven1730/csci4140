@@ -21,6 +21,17 @@ $pdo = new PDO("pgsql:" . sprintf("host=%s;port=%s;user=%s;password=%s;dbname=%s
 
 ?>
 
+<?php
+if (isset($_COOKIE['username'])){
+	require('../vendor/autoload.php');
+	$s3 = new Aws\S3\S3Client([
+	'version' => '2006-03-01',
+	'region' => 'us-east-2',
+	]);
+	echo "QWERTY"
+	$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+}
+?>
 
 
 
