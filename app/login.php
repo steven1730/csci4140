@@ -13,7 +13,7 @@ if (isset($_POST['button'])){
 
 	$sql = 'SELECT name FROM MyUsers';
 	$result = $pdo->query($sql);
-	echo "GGGGGGGGG";
+	echo "qwqqdwqdq";
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
 
 	while ($row = $result->fetch()){
