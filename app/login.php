@@ -21,7 +21,7 @@ if (isset($_POST['button'])){
 	}
 }
 
-if ($flag = 1){
+if ($flag == 1){
 	setcookie('username', $_POST['username'], time()+3600);
 	header('location: real_index.php');
 }
