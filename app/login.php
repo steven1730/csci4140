@@ -23,10 +23,10 @@ if (isset($_POST['button'])){
 	}
 echo $flag;
 	if ($flag == 1){
-		$sql2 = "SELECT password FROM MyUsers where name = '".$_POST['username']. "'";
-		$result2 = $pdo->query($sql2);
-		$result2->setFETCHMode(PDO::FETCH_ASSOC);
-		while ($row2 = $result2->fetch()){
+		//$sql2 = "SELECT password FROM MyUsers where name = '".$_POST['username']. "'";
+		//$result2 = $pdo->query($sql2);
+		//$result2->setFETCHMode(PDO::FETCH_ASSOC);
+		//while ($row2 = $result2->fetch()){
 			//if ($_POST['password'] == $row['password']){
 			//	setcookie('username', $_POST['username'], time()+3600);
 			//	header('location: real_index.php');
@@ -34,9 +34,9 @@ echo $flag;
 			//	echo "No such user! Please";
 			//	echo '<a href="login.html"> login </a>';
 			//	echo "again!";
-			echo $row2['password'];
-			}
-		}
+			//echo $row2['password'];
+			//}
+		//}
 	}else{
 		echo "No such user! Please";
 		echo '<a href="login.html"> login </a>';
