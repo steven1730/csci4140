@@ -51,6 +51,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     </body>
 </html>
 
+<?php echo "HERE" ?>
+
 <?php 
 } 
 ?>
