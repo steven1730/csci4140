@@ -15,20 +15,20 @@ if (isset($_POST['button'])){
 	$sql = 'SELECT name FROM MyUsers';
 	$result = $pdo->query($sql);
 	$result->setFETCHMode(PDO::FETCH_ASSOC);
-	echo $_POST['username'];
 	while ($row = $result->fetch()){
-		echo $row['name'];
 		if ($_POST['username'] == $row['name'])
 			$flag = 1;
 	}
 }
-echo $flag;
-//if ($flag == 1){
-//	setcookie('username', $_POST['username'], time()+3600);
-//	header('location: real_index.php');
-//}
-//else if (isset($_POST['loginasguest'])){
-//	header('location: real_index.php');
-//}
+
+if ($flag == 1){
+	setcookie('username', $_POST['username'], time()+3600);
+	header('location: real_index.php');
+}
+else{
+	if (isset($_POST['loginasguest'])){
+		header('location: login.html');
+	}
+}
 
 ?>
