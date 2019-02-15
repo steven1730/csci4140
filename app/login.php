@@ -23,7 +23,7 @@ if (isset($_POST['button'])){
 			}
 		}
 	}
-echo $flag;
+//echo $flag;
 	if ($flag == 1){
 		setcookie('username', $_POST['username'], time()+3600);
 		header('location: real_index.php');
@@ -31,7 +31,7 @@ echo $flag;
 		//if (isset($_POST['loginasguest'])){
 		//	header('location: login.html');
 		//}
-		echo "No such user! Please";
+		echo "Incorrect username or password! Please";
 		echo '<a href="login.html"> login </a>';
 		echo "again!";
 	}
