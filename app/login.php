@@ -11,7 +11,7 @@ if (isset($_POST['button'])){
 	));
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = $pdo->prepare("SELECT name FROM myusers");
+	$sql = $pdo->prepare("SELECT name FROM MyUsers");
 	$sql->execute();
 
 	$result = $sql->setFetchMode(PDO::FETCH_ASSOC);
