@@ -26,8 +26,8 @@ if (isset($_POST['button'])){
 	if ($flag == 1){
 		$sql2 = 'SELECT password FROM MyUsers where name = $name';
 		$result2 = $pdo->query($sql2);
-		$result->setFETCHMode(PDO::FETCH_ASSOC);
-		while ($row = $result->fetch()){
+		$result2->setFETCHMode(PDO::FETCH_ASSOC);
+		while ($row = $result2->fetch()){
 			if ($_POST['password'] == $row['password']){
 				setcookie('username', $_POST['username'], time()+3600);
 				header('location: real_index.php');
