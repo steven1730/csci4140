@@ -24,7 +24,7 @@ if (isset($_POST['button'])){
 	}
 
 	if ($flag == 1){
-		$sql2 = 'SELECT password FROM MyUsers where name = $name';
+		$sql2 = "SELECT password FROM MyUsers where name = '$name'";
 		$result2 = $pdo->query($sql2);
 		$result2->setFETCHMode(PDO::FETCH_ASSOC);
 		while ($row = $result2->fetch()){
