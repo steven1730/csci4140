@@ -1,9 +1,9 @@
 <?php
 if (isset($_COOKIE['username'])){
 	echo 'You are logged as '.$_COOKIE['username'].'.';
-	echo '   ';
+	echo '  |  ';
 	echo '<a href="logout.php"> Log Out </a>';
-	echo '   ';
+	echo '  |  ';
 	if ($_COOKIE['username'] == 'admin'){
 		echo '<a href="initial.html"> Initialization </a>';
 	}
