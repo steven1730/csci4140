@@ -51,12 +51,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+
+        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
         $filename =  $_FILES['userfile']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if(!in_array($ext, $allowed)){
         	echo 'error!';
         }
-        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>
         	Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)
