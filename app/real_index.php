@@ -51,8 +51,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
             <input name="userfile" type="file">
             <input type="submit" value="Upload">
-            <input type="radio" name="public" value="Public">Public</input>
-            <input type="radio" name="private" value="Private">Private</input>
+            <input type="radio" name="status" value="Public">Public</input>
+            <input type="radio" name="status" value="Private">Private</input>
         </form>
     </body>
 </html>
