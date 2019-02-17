@@ -1,5 +1,5 @@
 <?php
-require ('..vendor/autoload.php');
+require('../vendor/autoload.php');
 //$s3 = Aws\S3\S3Client(['version'=>'2006-03-01','region'=>'ap-northeast-1',]);
 $bucketName = 'csci4140-mybucket1';
 $result111 = $s3->listObjects(array('Bucket' => $bucketName));
