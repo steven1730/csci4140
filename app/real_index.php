@@ -36,12 +36,16 @@ if (isset($_COOKIE['username'])){
         <h1>Photo Ablum</h1>
 
 <?php
-header('Content-type: image/jpeg');
+require('../vendor/autoload.php');
 
+try {
+	$result = $s3->getObject(['Bucket' => $bucket, 'Key' => $keyname]);
+	header('Content-type: image/jpeg');
+	$echo $result['Body'];
+}catch (S3Exception $e){
+	echo $e->getMessage() . PHP_EOL;
+}
 
-$image_in = new Imagick('test.jpg');
-
-echo $image_in;
 ?>
 
 <?php
