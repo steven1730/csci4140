@@ -61,7 +61,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <p>
         	Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)
         </p>
-<?php }} catch(Exception $e) { ?>
+<?php }else{
+	echo "Upload error: Wrong file type!<br/>";
+}
+
+
+} catch(Exception $e) { ?>
         <p>Upload error :(</p>
 <?php } } ?>
         <h2>-----------------------------------------------------------</h2>
