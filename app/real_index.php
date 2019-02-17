@@ -34,7 +34,7 @@ if (isset($_COOKIE['username'])){
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Photo Ablum</h1>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com"><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test1.jpg" alt="s3-ap-northeast-1.amazonaws.com"><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/mad.png" alt="s3-ap-northeast-1.amazonaws.com">
+        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com"><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test.jpg" alt="s3-ap-northeast-1.amazonaws.com"><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/mad.png" alt="s3-ap-northeast-1.amazonaws.com">
 
 <?php
 // outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
@@ -45,15 +45,15 @@ if (file_exists($filename)) {
     echo "<br/>";
 }
 
-$filename1 = 'test1.jpg';
-if (file_exists($filename)) {
-    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+$filename1 = 'test.jpg';
+if (file_exists($filename1)) {
+    echo "$filename1 was last modified: " . date ("F d Y H:i:s.", filemtime($filename1));
     echo "<br/>";
 }
 
-$filename = 'mad.png';
-if (file_exists($filename)) {
-    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+$filename2 = 'mad.png';
+if (file_exists($filename2)) {
+    echo "$filename2 was last modified: " . date ("F d Y H:i:s.", filemtime($filename2));
     echo "<br/>";
 }
 
