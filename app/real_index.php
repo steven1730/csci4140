@@ -2,7 +2,7 @@
 if (isset($_COOKIE['username'])){
 	echo 'You are logged as '.$_COOKIE['username'].'.';
 	echo '   ';
-	echo '<a href="logout.php"> Log Out </a><br/>';
+	echo '<a href="logout.php"> Log Out </a>';
 	echo '   ';
 	if ($_COOKIE['username'] == 'admin'){
 		echo '<a href="initial.html"> Initialization </a>';
