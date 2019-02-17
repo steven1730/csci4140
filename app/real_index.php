@@ -42,6 +42,7 @@ if (isset($_COOKIE['username'])){
 $filename = 'test2.jpg';
 if (file_exists($filename)) {
     echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+    echo "<br/>";
 }
 ?>
 
@@ -51,18 +52,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-
-        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-        $filename =  $_FILES['userfile']['name'];
+		$filename =  $_FILES['userfile']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!in_array($ext, $allowed)){
-        	echo 'error!';
-        }
+        if(in_array($ext, $allowed)){
+        	$upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+        
 ?>
         <p>
         	Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)
         </p>
-<?php } catch(Exception $e) { ?>
+<?php }} catch(Exception $e) { ?>
         <p>Upload error :(</p>
 <?php } } ?>
         <h2>-----------------------------------------------------------</h2>
