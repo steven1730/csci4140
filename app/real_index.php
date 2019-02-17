@@ -34,8 +34,15 @@ if (isset($_COOKIE['username'])){
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Photo Ablum</h1>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com"><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test.jpg" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">
-        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/mad.png" alt="s3-ap-northeast-1.amazonaws.com">
+        <p>
+        	<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com">
+        </p>
+        <p>
+        	<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test.jpg" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">
+        </p>
+        <p>
+        	<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/mad.png" alt="s3-ap-northeast-1.amazonaws.com">
+        </p>
 
 <?php
 // outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
