@@ -1,10 +1,8 @@
 <?php
 if (isset($_COOKIE['username'])){
 	echo 'You are logged as '.$_COOKIE['username'].'.';
-	echo '<a href="logout.php"> Log Out </a><br/>';
-	if ($_COOKIE['username'] == 'admin'){
-		echo '<a href="initial.html"> Initialization </a><br/>';
-	}
+	echo '<a href="logout.php"> Log Out </a><br/><br/>';
+
 }else{
 	header("location: guestalbum.php"); 
 }
@@ -47,7 +45,7 @@ $bucketName = 'csci4140-mybucket1';
 $result11 = $s3->listObjects(array('Bucket' => $bucketName));
 foreach ($result11['Contents'] as $object){
 	echo '<p>';
-    echo    '<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/'.$object['Key'].'" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">';
+    echo    '<a href="<?=htmlspecialchars($upload->get('ObjectURL'))?><img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/'.$object['Key'].'" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500"></a>';
     echo '</p>';
 }
 
