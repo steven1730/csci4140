@@ -38,13 +38,10 @@ if (isset($_COOKIE['username'])){
 <?php
 require('../vendor/autoload.php');
 
-try {
-	$result = $s3->getObject(['Bucket' => $bucket, 'Key' => $keyname]);
+	$result = $s3->getObject(['Bucket' => 'csci4140-mybucket1', 'Key' => 'AKIAIODLEBHOAPHZNMUA']);
 	header('Content-type: image/jpeg');
 	$echo $result['Body'];
-}catch (S3Exception $e){
-	echo $e->getMessage() . PHP_EOL;
-}
+
 
 ?>
 
