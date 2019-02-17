@@ -37,7 +37,12 @@ if (isset($_COOKIE['username'])){
         <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com">
 
 <?php
-echo $s3['LastModified']->format(\DateTime::ISO8601);
+// outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
+
+$filename = 'test2.jpg';
+if (file_exists($filename)) {
+    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+}
 ?>
 
 <?php
