@@ -34,6 +34,19 @@ if (isset($_COOKIE['username'])){
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Photo Ablum</h1>
+
+<?php
+header('Content-type: image/jpeg');
+
+
+$image_in = new Imagick('test.jpg');
+
+$image_in->blurImage(10,10);
+$image_in->borderImage('black', 100, 100);
+
+echo $image_in;
+?>
+
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
