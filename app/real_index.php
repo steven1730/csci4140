@@ -46,10 +46,16 @@ if (file_exists($filename)) {
 ?>
 
 <?php
+$allowed = array('gif', 'png', 'jpg');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     // FIXME: add more validation, e.g. using ext/fileinfo
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
+        $filename =  $_FILES['userfile']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!in_array($ext, $allowed)){
+        	echo 'error!';
+        }
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>
