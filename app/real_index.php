@@ -33,7 +33,23 @@ if (isset($_COOKIE['username'])){
     <body>
         <h1>Photo Ablum</h1>
 
+<?php
+// outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
 
+//$filename = 'test2.jpg';
+//if (file_exists($filename)) {
+//    echo "$filename was last modified: " . date ("F d Y H:i:s.", filectime($filename));
+//    echo "<br/>";
+//}
+$bucketName = 'csci4140-mybucket1';
+$result11 = $s3->listObjects(array('Bucket' => $bucketName));
+foreach ($result11['Contents'] as $object){
+	echo '<p>';
+    echo    '<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/'.$object['Key'].'" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">';
+    echo '</p>';
+}
+
+?>
 
 <?php
 $allowed = array('gif', 'png', 'jpg');
@@ -50,18 +66,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         <p>
         	Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)
         </p>
-
-<?php
-$bucketName = 'csci4140-mybucket1';
-$result11 = $s3->listObjects(array('Bucket' => $bucketName));
-foreach ($result11['Contents'] as $object){
-	echo '<p>';
-    echo    '<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/'.$object['Key'].'" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">';
-    echo '</p>';
-}
-
-?>
-
 <?php }else{
 	echo "Upload error: Wrong file type!<br/>";
 }
