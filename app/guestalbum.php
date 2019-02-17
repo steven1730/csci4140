@@ -1,11 +1,7 @@
 <?php
-if (isset($_COOKIE['username'])){
-	echo 'You are logged as '.$_COOKIE['username'].'.';
-	echo '<a href="logout.php"> Log Out </a><br/><br/>';
-
-}else{
-	header("location: guestalbum.php"); 
-}
+echo 'Hello my guest! Please';
+echo '<a href="login.html"> Login </a>';
+echo ' !';
 
 $db = parse_url(getenv("DATABASE_URL"));
 
@@ -20,7 +16,7 @@ $pdo = new PDO("pgsql:" . sprintf("host=%s;port=%s;user=%s;password=%s;dbname=%s
 ?>
 
 <?php
-if (isset($_COOKIE['username'])){
+if (!isset($_COOKIE['username'])){
 	require('../vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
 	$s3 = new Aws\S3\S3Client(['version'=>'2006-03-01','region'=>'ap-northeast-1',]);
@@ -43,13 +39,7 @@ if (isset($_COOKIE['username'])){
         </p>
 
 <?php
-// outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
 
-//$filename = 'test2.jpg';
-//if (file_exists($filename)) {
-//    echo "$filename was last modified: " . date ("F d Y H:i:s.", filectime($filename));
-//    echo "<br/>";
-//}
 $bucketName = 'csci4140-mybucket1';
 $result11 = $s3->listObjects(array('Bucket' => $bucketName));
 echo "Keys retrieved!\n";
@@ -92,6 +82,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
     </body>
 </html>
 
-<?php 
-} 
+<?php
+}
 ?>
