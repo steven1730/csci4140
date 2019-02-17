@@ -34,7 +34,13 @@ if (isset($_COOKIE['username'])){
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Photo Ablum</h1>
+        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com">
 
+<?php
+$filename = 'https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg';
+$filetime = filetime($filename);
+
+echo $filetime;
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
@@ -43,7 +49,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
         $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
-		<img src="<?=htmlspecialchars($upload->get('ObjectURL'))?>" alt="s3-ap-northeast-1.amazonaws.com">
         <p>
         	Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)
         </p>
