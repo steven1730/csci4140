@@ -49,19 +49,19 @@ if (isset($_COOKIE['username'])){
 
 $filename = 'test2.jpg';
 if (file_exists($filename)) {
-    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+    echo "$filename was last modified: " . date ("F d Y H:i:s.", filectime($filename));
     echo "<br/>";
 }
 
 $filename1 = 'test.jpg';
 if (file_exists($filename1)) {
-    echo "$filename1 was last modified: " . date ("F d Y H:i:s.", filemtime($filename1));
+    echo "$filename1 was last modified: " . date ("F d Y H:i:s.", filectime($filename1));
     echo "<br/>";
 }
 
 $filename2 = 'mad.png';
 if (file_exists($filename2)) {
-    echo "$filename2 was last modified: " . date ("F d Y H:i:s.", filemtime($filename2));
+    echo "$filename2 was last modified: " . date ("F d Y H:i:s.", filectime($filename2));
     echo "<br/>";
 }
 
