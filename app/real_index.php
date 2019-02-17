@@ -39,7 +39,7 @@ if (isset($_COOKIE['username'])){
 <?php
 echo filemtime("test2.jpg");
 echo "<br />";
-echo "Last modified: ".date("F d Y H:i:s.",filemtime("test.txt"));
+echo "Last modified: ".date("F d Y H:i:s.",filemtime("test2.jpg"));
 ?>
 
 <?php
