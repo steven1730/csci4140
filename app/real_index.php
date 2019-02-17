@@ -23,14 +23,10 @@ $pdo = new PDO("pgsql:" . sprintf("host=%s;port=%s;user=%s;password=%s;dbname=%s
 
 <?php
 if (isset($_COOKIE['username'])){
-	echo "HERqfefsfw";
 	require('../vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
-	echo 'wqdqwafewggergfre';
 	$s3 = new Aws\S3\S3Client(['version'=>'2006-03-01','region'=>'ap-northeast-1',]);
-	echo "wefdefeafsfsfsef";
 	$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-	echo "FSGDS";
 ?>
 
 
@@ -53,12 +49,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
 <?php } } ?>
         <h2>Upload a file</h2>
         <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-            <input name="userfile" type="file"><input type="submit" value="Upload">
+            <input name="userfile" type="file">
+            <input type="submit" value="Upload">
+            <input type="radio" name="public" value="Public">
+            <input type="radio" name="private" value="Private">
         </form>
     </body>
 </html>
-
-<?php echo "HERE"; ?>
 
 <?php 
 } 
