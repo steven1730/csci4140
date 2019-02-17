@@ -44,6 +44,19 @@ if (file_exists($filename)) {
     echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
     echo "<br/>";
 }
+
+$filename1 = 'test1.jpg';
+if (file_exists($filename)) {
+    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+    echo "<br/>";
+}
+
+$filename = 'mad.png';
+if (file_exists($filename)) {
+    echo "$filename was last modified: " . date ("F d Y H:i:s.", filemtime($filename));
+    echo "<br/>";
+}
+
 ?>
 
 <?php
