@@ -41,6 +41,7 @@ $filename = 'https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jp
 $filetime = filetime($filename);
 
 echo $filetime;
+?>
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
