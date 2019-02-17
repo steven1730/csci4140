@@ -21,8 +21,6 @@ if (isset($_POST['button'])){
 				$flag = 1;
 				break;
 			}
-		}else if($_POST['username'] == 'admin'){
-			header(location: initial.php);
 		}
 	}
 //echo $flag;
