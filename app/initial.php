@@ -1,12 +1,9 @@
 <?php
 require '..vendor/autoload.php';
-use Aws\S3\S3Client;
-$s3 = new S3Client([['version'=>'2006-03-01','region'=>'ap-northeast-1',]);
-$bucket = 'csci4140-mybucket1';
-
-$result111 = $s3->listObjects(array('Bucket' => $bucket));
+$bucketName = 'csci4140-mybucket1';
+$result111 = $s3->listObjects(array('Bucket' => $bucketName));
 foreach ($result111['Contents'] as $object){
-	$s3->deleteObject(['Bucket' => $bucket,'Key'    => $object['Key']]);
+	$s3->deleteObject(['Bucket' => $bucketName,'Key'    => $object['Key']]);
 }
 
 echo 'System was initializated~';
