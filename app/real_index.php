@@ -43,7 +43,6 @@ if (isset($_COOKIE['username'])){
 //}
 $bucketName = 'csci4140-mybucket1';
 $result11 = $s3->listObjects(array('Bucket' => $bucketName));
-echo "Keys retrieved!\n";
 foreach ($result11['Contents'] as $object){
 	echo '<p>';
     echo    '<img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/'.$object['Key'].'" alt="s3-ap-northeast-1.amazonaws.com" width="500" height="500">';
