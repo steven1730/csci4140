@@ -1,5 +1,5 @@
 <?php
 
-System Initialization
+echo 'System was initializated~';
 
 ?>
