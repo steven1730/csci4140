@@ -37,9 +37,7 @@ if (isset($_COOKIE['username'])){
         <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com">
 
 <?php
-echo filemtime("test2.jpg");
-echo "<br />";
-echo "Last modified: ".date("F d Y H:i:s.",filemtime("test2.jpg"));
+echo $object['LastModified']->format(\DateTime::ISO8601);
 ?>
 
 <?php
