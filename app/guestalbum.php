@@ -43,7 +43,7 @@ if (!isset($_COOKIE['username'])){
 $bucketName = 'csci4140-mybucket1';
 $result11 = $s3->listObjects(array('Bucket' => $bucketName));
 echo "Keys retrieved!\n";
-foreach ($result['Contents'] as $object){
+foreach ($result11['Contents'] as $object){
 	echo $object['Key'] . "\n";
 }
 
