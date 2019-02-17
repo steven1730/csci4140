@@ -2,7 +2,9 @@
 if (isset($_COOKIE['username'])){
 	echo 'You are logged as '.$_COOKIE['username'].'.';
 	echo '<a href="logout.php"> Log Out </a><br/><br/>';
-
+	if ($_COOKIE['username'] == 'admin'){
+		echo '<a href="initial.html"> Initialization </a>';
+	}
 }else{
 	header("location: guestalbum.php"); 
 }
