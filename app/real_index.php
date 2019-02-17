@@ -34,7 +34,7 @@ if (isset($_COOKIE['username'])){
     <head><meta charset="UTF-8"></head>
     <body>
         <h1>Photo Ablum</h1>
-        <img src="https://s3-ap-northeast-1.amazonaws.com/csci4140-mybucket1/test2.jpg" alt="s3-ap-northeast-1.amazonaws.com">
+        <img src="<?=htmlspecialchars($upload->get('ObjectURL'))?>" alt="s3-ap-northeast-1.amazonaws.com">
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
