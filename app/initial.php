@@ -10,7 +10,7 @@ $s3->deleteObjects([
     'Bucket'  => $bucket,
     'Delete' => [
         'Objects' => array_map(function ($key) {
-            return ['Key' => $result11['Contents']['Key']];
+            return ['Key' => $result111['Contents']['Key']];
         }, $result111)
     ],
 ]);
