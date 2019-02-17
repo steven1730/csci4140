@@ -47,22 +47,16 @@ if (isset($_COOKIE['username'])){
 <?php
 // outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
 
-$filename = 'test2.jpg';
-if (file_exists($filename)) {
-    echo "$filename was last modified: " . date ("F d Y H:i:s.", filectime($filename));
-    echo "<br/>";
-}
-
-$filename1 = 'test.jpg';
-if (file_exists($filename1)) {
-    echo "$filename1 was last modified: " . date ("F d Y H:i:s.", filectime($filename1));
-    echo "<br/>";
-}
-
-$filename2 = 'mad.png';
-if (file_exists($filename2)) {
-    echo "$filename2 was last modified: " . date ("F d Y H:i:s.", filectime($filename2));
-    echo "<br/>";
+//$filename = 'test2.jpg';
+//if (file_exists($filename)) {
+//    echo "$filename was last modified: " . date ("F d Y H:i:s.", filectime($filename));
+//    echo "<br/>";
+//}
+$bucketName = 'csci4140-mybucket1';
+$result11 = $s3->listObjects(array('Bucket' => $bucketName));
+echo "Keys retrieved!\n";
+foreach ($result['Contents'] as $object){
+	echo $object['Key'] . "\n";
 }
 
 ?>
